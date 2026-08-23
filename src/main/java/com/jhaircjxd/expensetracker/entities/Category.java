@@ -38,4 +38,5 @@ public class Category {
     @JsonIgnore
     @OneToMany(mappedBy = "category")
     private List<CategoryPeriod> categoryPeriods;
+
 }
