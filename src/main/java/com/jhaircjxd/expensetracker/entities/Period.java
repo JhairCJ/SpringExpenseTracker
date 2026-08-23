@@ -43,7 +43,6 @@ public class Period {
     
     private Integer savings;
 
-    //TODO: relations
     @OneToMany(mappedBy = "period")
     private List<CategoryPeriod> categoryPeriods;
 

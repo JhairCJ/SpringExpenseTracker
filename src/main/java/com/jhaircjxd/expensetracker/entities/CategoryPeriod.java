@@ -31,7 +31,6 @@ public class CategoryPeriod {
 
     private BigDecimal budget;
 
-    //TODO: relations
     @ManyToOne
     @JoinColumn(name = "period_id", nullable = false)
     private Period period;

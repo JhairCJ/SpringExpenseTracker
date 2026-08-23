@@ -35,7 +35,6 @@ public class Category {
     @Column(nullable = false)
     private String name;
 
-    //TODO: relations
     @JsonIgnore
     @OneToMany(mappedBy = "category")
     private List<CategoryPeriod> categoryPeriods;
