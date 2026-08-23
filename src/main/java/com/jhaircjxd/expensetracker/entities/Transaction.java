@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -42,6 +44,11 @@ public class Transaction {
     @NotNull(message = "Amount cannot be null")
     @Column(name = "amount", nullable = false)
     private BigDecimal amount;
+
+    @NotNull(message = "Type cannot be null")
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type", nullable = false)
+    private TransactionType type;
 
 
     @PrePersist
