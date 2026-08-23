@@ -47,4 +47,7 @@ public class Period {
     @OneToMany(mappedBy = "period")
     private List<CategoryPeriod> categoryPeriods;
 
+    @OneToMany(mappedBy = "period")
+    private List<Transaction> transactions;
+
 }

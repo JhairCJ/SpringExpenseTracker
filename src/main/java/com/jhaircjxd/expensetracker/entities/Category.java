@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -39,4 +40,6 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private List<CategoryPeriod> categoryPeriods;
 
+    @OneToOne(mappedBy = "category")
+    private Transaction transaction;
 }
