@@ -21,7 +21,7 @@ public class CategoryPeriodService {
     }
 
     //Returns category periods using a period_id
-    public List<CategoryPeriod> getCategoryPeriods(){
+    public List<CategoryPeriod> getCategoryPeriodsByPeriod(Long period_id){
         return null;
     }
 }

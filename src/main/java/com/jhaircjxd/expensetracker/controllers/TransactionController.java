@@ -50,8 +50,8 @@ public class TransactionController {
 
     //Returns transactions by period_id
     @GetMapping
-    public List<Transaction> getTransactions(){
-        return transactionService.getTransactions();
+    public List<Transaction> getTransactionsByPeriod(Long period_id){
+        return transactionService.getTransactionsByPeriod(period_id);
     }
 
     @GetMapping("/{id}")

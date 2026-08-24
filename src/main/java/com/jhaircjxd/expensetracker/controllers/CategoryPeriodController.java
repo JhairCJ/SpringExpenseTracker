@@ -50,7 +50,7 @@ public class CategoryPeriodController {
 
     //Returns category periods using a period_id
     @GetMapping
-    public List<CategoryPeriod> getCategoryPeriods(){
-        return categoryPeriodService.getCategoryPeriods();
+    public List<CategoryPeriod> getCategoryPeriodsByPeriod(Long period_id){
+        return categoryPeriodService.getCategoryPeriodsByPeriod(period_id);
     }
 }
