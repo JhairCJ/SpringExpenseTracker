@@ -40,5 +40,5 @@ public class Category {
 
     @JsonIgnore
     @OneToMany(mappedBy = "category")
-    private List<Transaction> transaction;
+    private List<Transaction> transactions;
 }
