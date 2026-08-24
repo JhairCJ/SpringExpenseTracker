@@ -33,6 +33,7 @@ public class TransactionService {
     }
 
     public void deleteTransaction(Long id){
+        transactionRepository.deleteById(id);
 
     }
 
@@ -42,6 +43,7 @@ public class TransactionService {
     }
 
     public Transaction getTransactionById(Long id){
-        return null;
+        return transactionRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Transaction not found with id: " + id));
     }
 }
