@@ -2,6 +2,7 @@ package com.jhaircjxd.expensetracker.entities;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -43,10 +44,18 @@ public class Period {
     
     private Integer savings;
 
-    @OneToMany(mappedBy = "period")
+    @OneToMany(
+        mappedBy = "period",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
     private List<CategoryPeriod> categoryPeriods;
 
-    @OneToMany(mappedBy = "period")
+    @OneToMany(
+        mappedBy = "period",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
     private List<Transaction> transactions;
 
 }
