@@ -2,8 +2,28 @@ package com.jhaircjxd.expensetracker.controllers;
 
 import java.util.List;
 
-import com.jhaircjxd.expensetracker.entities.CategoryPeriod;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.jhaircjxd.expensetracker.entities.CategoryPeriod;
+import com.jhaircjxd.expensetracker.services.CategoryPeriodService;
+
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.GetMapping;
+
+
+
+
+@RestController
+@RequestMapping("/api/categoryPeriod")
+@RequiredArgsConstructor
 public class CategoryPeriodController {
     /**
      * Crear categoria periodo
@@ -11,20 +31,26 @@ public class CategoryPeriodController {
      * Eliminar categoria periodo
      * Obtener lista de categoria periodo por periodo
      */
+    private final CategoryPeriodService categoryPeriodService;
 
-    public CategoryPeriod createCategoryPeriod(){
-        return null;
+    @PostMapping
+    public CategoryPeriod createCategoryPeriod(@RequestBody @Valid CategoryPeriod categoryPeriod){
+        return categoryPeriodService.createCategoryPeriod(categoryPeriod);
     }
 
-    public CategoryPeriod updateCategoryPeriod(Long id, CategoryPeriod categoryPeriod){
-        return null;
+    @PutMapping("/{id}")
+    public CategoryPeriod updateCategoryPeriod(@PathVariable Long id, @RequestBody @Valid CategoryPeriod categoryPeriod){
+        return categoryPeriodService.updateCategoryPeriod(id, categoryPeriod);
     }
 
-    public void deleteCategoryPeriod(Long id){
+    @DeleteMapping("/{id}")
+    public void deleteCategoryPeriod(@PathVariable Long id){
+        categoryPeriodService.deleteCategoryPeriod(id);
     }
 
     //Returns category periods using a period_id
+    @GetMapping
     public List<CategoryPeriod> getCategoryPeriods(){
-        return null;
+        return categoryPeriodService.getCategoryPeriods();
     }
 }
